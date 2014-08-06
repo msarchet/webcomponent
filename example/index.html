@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="import" href="../src/crop.html">
+        <link rel="import" href="../src/hello.html">
+        <link rel="import" href="../src/date.html">
+        <style>
+            .btn {
+                color : green;
+            }
+        </style>
+        <script>
+            if ('registerElement' in document
+              && 'createShadowRoot' in HTMLElement.prototype
+              && 'import' in document.createElement('link')
+              && 'content' in document.createElement('template')) {
+              // We're using a browser with native WC support!
+            } else {
+              document.write('<script src="https:\/\/cdnjs.cloudflare.com/ajax/libs/polymer/0.3.3/platform.js"><\/script>')
+            }
+
+      </script>
+    </head>
+    <body>
+        <x-hello name="David"></x-hello>
+        <input id="newName" type="text" onchange="setName()"></input>
+        <script type="text/javascript">
+            function setName() {
+                var name = document.getElementsByTagName("x-hello")[0];
+
+                name.setAttribute('name', document.getElementById('newName').value);
+            }
+        </script>
+    </body> 
+
+</html>
